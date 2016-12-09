@@ -78,7 +78,7 @@ export default class ScanQRView extends Component {
                />
                <View style={{ flex:1, marginTop: scanRectWidth-30, backgroundColor:'transparent', alignItems: 'center'}}>
                  <TouchableOpacity onPress={this.onCancel.bind(this)} activeOpacity={0.9}>
-                   <Text style={{color:'#fff'}}>{this.props.backButtonText}</Text>
+                   <Text style={{color:'#fff'}}>{this.props.instructionText}</Text>
                  </TouchableOpacity>
                </View>
             </View>
