@@ -9,7 +9,6 @@ import {
   Animated ,
   Easing ,
   Alert ,
-  TouchableOpacity
 } from 'react-native';
 import Camera from 'react-native-camera';
 export default class ScanQRView extends Component {
@@ -29,9 +28,6 @@ export default class ScanQRView extends Component {
       Animated.timing(this.state.scanTranslte,{toValue:0 , duration:3000 , easing:Easing.linear})
                        ]).start(()=>this.scanLineAnimation());
   }
-  componentWillUnmout(){
-
-  }
   onBarCodeRead(result){
     Vibration.vibrate();
     if(this.props.onBarCodeRead)
@@ -40,12 +36,6 @@ export default class ScanQRView extends Component {
     }
     else
       Alert.alert( "扫描结果" , result.data , [{text:"ok" , onPress:()=>this.camera.shouldQR()}] , {cancelable:false});
-  }
-  onCancel(){
-    if(this.props.cancel)
-    {
-      this.props.cancel();
-    }
   }
   render() {
     let width = Dimensions.get('window').width;
@@ -77,9 +67,7 @@ export default class ScanQRView extends Component {
                 }}
                />
                <View style={{flex:1, marginTop: scanRectWidth-30, backgroundColor:'transparent', alignItems: 'center'}}>
-                 <TouchableOpacity onPress={this.onCancel.bind(this)} activeOpacity={0.9}>
-                   <Text style={{color:'#fff', fontSize:10}}>{this.props.instructionText}</Text>
-                 </TouchableOpacity>
+                 <Text style={{color:'#fff', fontSize:10}}>{this.props.instructionText}</Text>
                </View>
             </View>
             <View style={{flex:1 , backgroundColor:scanCoverColor}}/>
