@@ -29,7 +29,7 @@ export default class ScanQRView extends Component {
                        ]).start(()=>this.scanLineAnimation());
   }
   onBarCodeRead(result){
-    Vibration.vibrate();
+    //Vibration.vibrate();
     if(this.props.onBarCodeRead)
     {
         this.props.onBarCodeRead(result , ()=>this.camera.shouldQR());
